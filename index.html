@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafsan's Portfolio | Laravel, React & WordPress Specialist</title>
+    <meta name="description" content="Reliable Laravel, React & WordPress development for small businesses, agencies, and creators.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-slate-900 tracking-tight">Rafsan<span class="text-brand-600">.</span></a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Services</a>
+                    <a href="#work" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Work</a>
+                    <a href="#process" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Process</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Pricing</a>
+                </nav>
+                <div class="hidden md:flex">
+                    <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-lg text-white bg-brand-600 hover:bg-brand-700 shadow-sm hover:shadow transition-all">
+                        Book a Call
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200">
+            <div class="px-2 pt-2 pb-4 space-y-1">
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Services</a>
+                <a href="#work" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Work</a>
+                <a href="#process" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Process</a>
+                <a href="#pricing" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Pricing</a>
+                <a href="#contact" class="block px-3 py-2 mt-4 text-center text-base font-medium rounded-lg text-white bg-brand-600 hover:bg-brand-700">Book a Call</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'#4f46e5\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-fade-in-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-50 text-brand-700 text-sm font-semibold mb-6 border border-brand-100">Freelance Developer & Consultant</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+                Reliable Web Engineering for <span class="text-brand-600 text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-400">Agencies & Creators</span>
+            </h1>
+            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                I specialize in building, optimizing, and maintaining robust applications and websites using Laravel, React, and WordPress. No hype, just solid code and clear communication.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Book a Consultation
+                </a>
+                <a href="#work" class="inline-flex justify-center items-center px-8 py-3.5 border border-slate-300 text-base font-semibold rounded-xl text-slate-700 bg-white hover:bg-slate-50 shadow-sm hover:shadow transition-all">
+                    See My Work
+                </a>
+            </div>
+            <div class="mt-12 flex justify-center items-center space-x-8 text-slate-500 text-sm font-medium">
+                <div class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Available for new projects</div>
+                <div class="flex items-center"><svg class="w-5 h-5 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Fast turnaround</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Social Proof -->
+    <section class="py-12 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center divide-x divide-slate-100">
+                <div class="p-4">
+                    <p class="text-4xl font-bold text-slate-900 mb-2">120<span class="text-brand-600">+</span></p>
+                    <p class="text-sm font-medium text-slate-500 uppercase tracking-wide">Projects Delivered</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-4xl font-bold text-slate-900 mb-2">2.5<span class="text-brand-600">x</span></p>
+                    <p class="text-sm font-medium text-slate-500 uppercase tracking-wide">Avg Speed Gain</p>
+                </div>
+                <div class="p-4 col-span-2 md:col-span-1 border-t md:border-t-0 border-slate-100 pt-8 md:pt-4">
+                    <p class="text-4xl font-bold text-slate-900 mb-2"><span class="text-brand-600">&lt;</span> 12h</p>
+                    <p class="text-sm font-medium text-slate-500 uppercase tracking-wide">Response Time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">How I Can Help</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Expertise tailored to your needs</h3>
+                <p class="text-lg text-slate-600">Whether you need a complex web app built from scratch or a legacy WordPress site rescued, I bring technical depth and a focus on business outcomes.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 reveal">
+                    <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Build & Migrate</h4>
+                    <p class="text-slate-600 leading-relaxed">Custom development using modern stacks (Laravel/React) or robust WordPress builds. Seamless, zero-downtime platform migrations.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 reveal" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Performance Optimization</h4>
+                    <p class="text-slate-600 leading-relaxed">Deep-dive audits and technical optimizations to drastically improve load times, Core Web Vitals, and overall user experience.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 reveal" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Security & Hardening</h4>
+                    <p class="text-slate-600 leading-relaxed">Proactive vulnerability patching, malware removal, and implementing strict security protocols to keep your data safe.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 reveal" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">WooCommerce Solutions</h4>
+                    <p class="text-slate-600 leading-relaxed">Building scalable online stores, developing custom plugins, and optimizing checkout flows to increase conversions.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 reveal" style="transition-delay: 400ms;">
+                    <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Ongoing Maintenance</h4>
+                    <p class="text-slate-600 leading-relaxed">Peace of mind with regular core/plugin updates, automated backups, and 24/7 uptime monitoring for your critical assets.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 reveal" style="transition-delay: 500ms;">
+                    <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Bug Fixes & Rescue</h4>
+                    <p class="text-slate-600 leading-relaxed">Quickly diagnosing and resolving complex errors, API integration issues, and visual bugs that others can't figure out.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Featured Work -->
+    <section id="work" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
+                <div class="max-w-2xl">
+                    <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Featured Work</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Recent projects delivered</h3>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 font-medium inline-flex items-center">
+                        View GitHub Profile
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Project 1 -->
+                <div class="group cursor-pointer reveal">
+                    <div class="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] mb-6 border border-slate-200">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-400 group-hover:scale-105 transition-transform duration-500 bg-slate-200">
+                            <!-- Placeholder for project image -->
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 mb-3">
+                        <span class="px-2.5 py-1 text-xs font-semibold rounded bg-brand-50 text-brand-600">Laravel</span>
+                        <span class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-100 text-slate-600">React</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">SaaS Membership Platform</h4>
+                    <p class="text-slate-600">Built a custom creator platform with seamless Stripe billing, resulting in a 40% increase in user retention.</p>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="group cursor-pointer reveal" style="transition-delay: 150ms;">
+                    <div class="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] mb-6 border border-slate-200">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-400 group-hover:scale-105 transition-transform duration-500 bg-slate-200">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 mb-3">
+                        <span class="px-2.5 py-1 text-xs font-semibold rounded bg-blue-50 text-blue-600">WordPress</span>
+                        <span class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-100 text-slate-600">Tailwind</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">Corporate Agency Rebrand</h4>
+                    <p class="text-slate-600">Developed a headless WordPress setup achieving 99/100 Core Web Vitals and drastically improving SEO rankings.</p>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group cursor-pointer reveal" style="transition-delay: 300ms;">
+                    <div class="relative overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] mb-6 border border-slate-200">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-400 group-hover:scale-105 transition-transform duration-500 bg-slate-200">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 mb-3">
+                        <span class="px-2.5 py-1 text-xs font-semibold rounded bg-purple-50 text-purple-600">WooCommerce</span>
+                        <span class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-100 text-slate-600">API</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">High-Volume E-commerce</h4>
+                    <p class="text-slate-600">Optimized database queries and implemented custom caching for a store processing 10k+ orders monthly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-brand-50 border-y border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-3xl font-bold text-slate-900 mb-16 reveal">Trusted by agencies and founders</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 reveal">
+                    <div class="flex text-yellow-400 mb-4">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"Rafsan stepped in when our previous developer abandoned the project. He quickly audited the messy Laravel codebase, stabilized it within days, and launched the app on schedule. A true professional."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-slate-200 rounded-full mr-3 flex items-center justify-center text-slate-500 font-bold">SJ</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900">Sarah Jenkins</p>
+                            <p class="text-xs text-slate-500">Founder, TechFlow</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 reveal" style="transition-delay: 150ms;">
+                    <div class="flex text-yellow-400 mb-4">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"We rely on Rafsan for all our clients' complex WordPress requirements. His ability to build custom plugins that don't bloat the site is unmatched. Communication is always clear and prompt."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-slate-200 rounded-full mr-3 flex items-center justify-center text-slate-500 font-bold">MR</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900">Marcus Rowe</p>
+                            <p class="text-xs text-slate-500">CTO, CreativeEdge Agency</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 reveal" style="transition-delay: 300ms;">
+                    <div class="flex text-yellow-400 mb-4">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"The performance optimization work Rafsan did on our WooCommerce store was incredible. Load times dropped from 4 seconds to under 1 second, and our conversion rate bumped up noticeably."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-slate-200 rounded-full mr-3 flex items-center justify-center text-slate-500 font-bold">AL</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900">Alex Lin</p>
+                            <p class="text-xs text-slate-500">E-commerce Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">How We Work</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">A simple, transparent process</h3>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Line -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-100"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="text-center reveal">
+                        <div class="w-24 h-24 mx-auto bg-white border-4 border-slate-50 rounded-full flex items-center justify-center shadow-sm mb-6">
+                            <span class="text-2xl font-bold text-brand-600">1</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">Discovery Call</h4>
+                        <p class="text-sm text-slate-600">We discuss your goals, current pain points, and determine if we are a good fit.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center reveal" style="transition-delay: 100ms;">
+                        <div class="w-24 h-24 mx-auto bg-white border-4 border-slate-50 rounded-full flex items-center justify-center shadow-sm mb-6">
+                            <span class="text-2xl font-bold text-brand-600">2</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">Strategy & Quote</h4>
+                        <p class="text-sm text-slate-600">I provide a clear technical blueprint, timeline, and a fixed-price quote.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center reveal" style="transition-delay: 200ms;">
+                        <div class="w-24 h-24 mx-auto bg-white border-4 border-slate-50 rounded-full flex items-center justify-center shadow-sm mb-6">
+                            <span class="text-2xl font-bold text-brand-600">3</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">Development</h4>
+                        <p class="text-sm text-slate-600">Writing clean, documented code with regular progress updates along the way.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="text-center reveal" style="transition-delay: 300ms;">
+                        <div class="w-24 h-24 mx-auto bg-white border-4 border-slate-50 rounded-full flex items-center justify-center shadow-sm mb-6">
+                            <span class="text-2xl font-bold text-brand-600">4</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">Launch & Support</h4>
+                        <p class="text-sm text-slate-600">Seamless deployment followed by an optional ongoing maintenance retainer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-400 font-semibold tracking-wide uppercase text-sm mb-3">Investment</h2>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Transparent Pricing Packages</h3>
+                <p class="text-slate-400">Clear expectations upfront. <span class="text-slate-300 italic">*Prices are indicative and vary based on exact scope.</span></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Package 1 -->
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 reveal">
+                    <h4 class="text-xl font-bold mb-2">Starter / Fixes</h4>
+                    <p class="text-slate-400 text-sm mb-6">For small tweaks, bug fixes, or minor performance audits.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-white">From $500</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-slate-300">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-brand-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 1-2 day turnaround</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-brand-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Bug diagnosis & resolution</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-brand-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Theme/Plugin adjustments</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center px-4 py-3 rounded-lg border border-slate-600 text-white hover:bg-slate-700 transition-colors font-medium">Get a Quote</a>
+                </div>
+
+                <!-- Package 2 (Highlighted) -->
+                <div class="bg-gradient-to-b from-brand-600 to-brand-800 rounded-2xl p-8 border border-brand-500 shadow-xl shadow-brand-900/50 transform md:-translate-y-4 relative reveal" style="transition-delay: 150ms;">
+                    <div class="absolute top-0 right-0 -mr-2 -mt-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">Popular</div>
+                    <h4 class="text-xl font-bold mb-2 text-white">Growth Build</h4>
+                    <p class="text-brand-100 text-sm mb-6">Complete website builds, redesigns, or major feature integrations.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-white">From $2,500</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-brand-50">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-white mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Custom Laravel/WP/React dev</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-white mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Performance & SEO optimized</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-white mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Responsive design implementation</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-white mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 30 days post-launch support</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center px-4 py-3 rounded-lg bg-white text-brand-700 hover:bg-slate-50 transition-colors font-bold">Start a Project</a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 reveal" style="transition-delay: 300ms;">
+                    <h4 class="text-xl font-bold mb-2">Retainer / Pro</h4>
+                    <p class="text-slate-400 text-sm mb-6">Ongoing development, maintenance, and strategic technical partnership.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-white">Custom</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-slate-300">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-brand-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Dedicated monthly hours</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-brand-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Priority support & response</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-brand-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Proactive monitoring & updates</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center px-4 py-3 rounded-lg border border-slate-600 text-white hover:bg-slate-700 transition-colors font-medium">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12 reveal">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-slate-200 rounded-lg reveal">
+                    <button class="w-full text-left px-6 py-4 font-semibold text-slate-900 focus:outline-none flex justify-between items-center faq-btn">
+                        Do you work with agencies as a white-label partner?
+                        <span class="text-brand-600 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-slate-600">
+                        <div class="pb-4">Yes, I frequently act as a "behind-the-scenes" senior developer for design and marketing agencies, communicating directly with your team via Slack or email.</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-slate-200 rounded-lg reveal">
+                    <button class="w-full text-left px-6 py-4 font-semibold text-slate-900 focus:outline-none flex justify-between items-center faq-btn">
+                        What exactly do you mean by performance optimization?
+                        <span class="text-brand-600 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-slate-600">
+                        <div class="pb-4">It means I look under the hood. I reduce database queries, eliminate render-blocking scripts, implement advanced caching, and optimize media so your site passes Core Web Vitals and loads instantly.</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-slate-200 rounded-lg reveal">
+                    <button class="w-full text-left px-6 py-4 font-semibold text-slate-900 focus:outline-none flex justify-between items-center faq-btn">
+                        Can you take over a half-finished project?
+                        <span class="text-brand-600 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-slate-600">
+                        <div class="pb-4">Usually, yes. It requires an initial code audit to assess the state of the current work. From there, I'll let you know if it's more cost-effective to salvage the existing code or rebuild.</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="bg-white border border-slate-200 rounded-lg reveal">
+                    <button class="w-full text-left px-6 py-4 font-semibold text-slate-900 focus:outline-none flex justify-between items-center faq-btn">
+                        Do you design sites or just develop them?
+                        <span class="text-brand-600 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-slate-600">
+                        <div class="pb-4">I am primarily a developer. However, I have a strong eye for UI/UX. For complex designs, I prefer working from Figma files provided by you or a designer. For simple projects, I can use modern UI libraries (like Tailwind UI) to build something clean and professional without a designer.</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="bg-white border border-slate-200 rounded-lg reveal">
+                    <button class="w-full text-left px-6 py-4 font-semibold text-slate-900 focus:outline-none flex justify-between items-center faq-btn">
+                        What are your payment terms?
+                        <span class="text-brand-600 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-slate-600">
+                        <div class="pb-4">For most fixed-price projects, I require a 50% deposit upfront to secure the spot in my schedule, and 50% upon project completion and approval, prior to going live. Retainers are billed monthly in advance.</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 6 -->
+                <div class="bg-white border border-slate-200 rounded-lg reveal">
+                    <button class="w-full text-left px-6 py-4 font-semibold text-slate-900 focus:outline-none flex justify-between items-center faq-btn">
+                        How long does a typical build take?
+                        <span class="text-brand-600 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-slate-600">
+                        <div class="pb-4">Simple marketing sites can take 2-3 weeks. Complex WooCommerce builds or custom Laravel applications usually range from 6 to 12 weeks depending on the feature scope. I provide precise timelines during the quote phase.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="py-24 bg-white relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-brand-50 opacity-50 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-blue-50 opacity-50 blur-3xl"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 reveal">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Let's talk about your project</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto">Fill out the form below or email me directly at <a href="mailto:hello@example.com" class="text-brand-600 hover:underline">hello@example.com</a>. I usually reply within 24 hours.</p>
+                    <div class="mt-4 inline-flex items-center px-3 py-1 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                        Currently accepting new clients for next month
+                    </div>
+                </div>
+
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Form submitted! (Demo)');">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="interest" class="block text-sm font-medium text-slate-700 mb-1">What do you need help with?</label>
+                        <select id="interest" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-white">
+                            <option>New Project Build (Laravel/React)</option>
+                            <option>WordPress / WooCommerce Development</option>
+                            <option>Performance & Speed Optimization</option>
+                            <option>Bug Fixes / Rescue</option>
+                            <option>Ongoing Maintenance Retainer</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Project Details</label>
+                        <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all" placeholder="Tell me a bit about your goals, timeline, and budget..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight">Rafsan<span class="text-brand-500">.</span></a>
+                    <p class="text-slate-400 mt-2 text-sm max-w-xs">Building reliable digital experiences with Laravel, React, and WordPress.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <!-- Twitter -->
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <p>&copy; 2026 Rafsan. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-4 text-xs">
+                    <span>Engineered for performance.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // FAQ Accordion logic
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('span');
+                
+                // Toggle active state
+                const isActive = answer.style.maxHeight;
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(el => {
+                    el.style.maxHeight = null;
+                });
+                document.querySelectorAll('.faq-btn span').forEach(el => {
+                    el.textContent = '+';
+                    el.style.transform = 'rotate(0deg)';
+                });
+
+                // Open current if it wasn't active
+                if (!isActive) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.textContent = '−';
+                    // Optional smooth rotation instead of text change, using text change for simplicity here
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
